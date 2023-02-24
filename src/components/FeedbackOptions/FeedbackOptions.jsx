@@ -11,7 +11,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
   return (
     <StyledList>
-      {Object.keys(options).map(name => (
+      {options.map(name => (
         <li key={name}>
           <StyledButton type="button" onClick={() => onLeaveFeedback(name)}>
             {icons[name]}
@@ -24,10 +24,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.exact({
-    good: PropTypes.number.isRequired,
-    neutral: PropTypes.number.isRequired,
-    bad: PropTypes.number.isRequired,
-  }),
+  options: PropTypes.array.isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
