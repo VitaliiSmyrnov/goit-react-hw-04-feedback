@@ -11,11 +11,11 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
   return (
     <StyledList>
-      {options.map(name => (
-        <li key={name}>
-          <StyledButton type="button" onClick={() => onLeaveFeedback(name)}>
-            {icons[name]}
-            {name[0].toUpperCase() + name.slice(1)}
+      {options.map(option => (
+        <li key={option}>
+          <StyledButton type="button" onClick={() => onLeaveFeedback(option)}>
+            {icons[option]}
+            {option[0].toUpperCase() + option.slice(1)}
           </StyledButton>
         </li>
       ))}

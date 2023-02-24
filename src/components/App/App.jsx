@@ -9,10 +9,10 @@ export const App = () => {
 
   const options = ['good', 'neutral', 'bad'];
 
-  const handleFeedbackIncrement = type => {
-    if (type === 'good') setGood(state => state + 1);
-    if (type === 'neutral') setNeutral(state => state + 1);
-    if (type === 'bad') setBad(state => state + 1);
+  const handleFeedbackIncrement = option => {
+    if (option === 'good') setGood(state => state + 1);
+    if (option === 'neutral') setNeutral(state => state + 1);
+    if (option === 'bad') setBad(state => state + 1);
   };
 
   const countTotalFeedback = () => {
@@ -50,61 +50,3 @@ export const App = () => {
     </Wrapper>
   );
 };
-
-// export class oldApp extends Component {
-//   state = {
-//     good: 0,
-//     neutral: 0,
-//     bad: 0,
-//   };
-
-//   handleFeedbackIncrement = value => {
-//     this.setState(prevState => ({ [value]: prevState[value] + 1 }));
-//   };
-
-//   countTotalFeedback = () => {
-//     const { good, neutral, bad } = this.state;
-//     return good + neutral + bad;
-//   };
-
-//   countPositiveFeedbackPercentage = () => {
-//     const { good, neutral, bad } = this.state;
-//     const sum = good + neutral + bad;
-//     return sum === 0 ? '0%' : Math.round((good / sum) * 100) + '%';
-//   };
-
-//   render() {
-//     const { good, neutral, bad } = this.state;
-//     const {
-//       state,
-//       handleFeedbackIncrement,
-//       countTotalFeedback,
-//       countPositiveFeedbackPercentage,
-//     } = this;
-//     return (
-//       <Wrapper>
-//         <StyledContainer>
-//           <Section title="Please leave feedback">
-//             <FeedbackOptions
-//               options={state}
-//               onLeaveFeedback={handleFeedbackIncrement}
-//             />
-//           </Section>
-//           <Section title="Statistics">
-//             {countTotalFeedback() ? (
-//               <Statistics
-//                 good={good}
-//                 neutral={neutral}
-//                 bad={bad}
-//                 total={countTotalFeedback()}
-//                 positivePercentage={countPositiveFeedbackPercentage()}
-//               />
-//             ) : (
-//               <Notification message="There is no feedback" />
-//             )}
-//           </Section>
-//         </StyledContainer>
-//       </Wrapper>
-//     );
-//   }
-// }
